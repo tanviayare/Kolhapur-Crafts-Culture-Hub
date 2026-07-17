@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kolhapur Crafts & Culture Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fffaf0;
+    }
+    header, footer {
+      background-color: #8b0000;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+    section {
+      padding: 2rem;
+      animation: fadeIn 1s ease;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 250px;
+      height: auto;
+      cursor: pointer;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup img {
+      max-width: 80%;
+      max-height: 80%;
+      border: 4px solid white;
+      border-radius: 8px;
+    }
+    .artisan-card, .product-card, form, blockquote {
+      margin: 1rem 0;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .read-more {
+      color: blue;
+      cursor: pointer;
+    }
+    button {
+      background-color: #8b0000;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    iframe {
+      border-radius: 8px;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kolhapur Crafts & Culture Hub</h1>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#artisans">Artisans</a>
+      <a href="#buy-local">Buy Local</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2>Artisan Product Gallery</h2>
+    <div class="gallery">
+      <img src="images/kolhapuri_chappal.webp" 
+           alt="Kolhapuri Chappal" 
+           title="Traditional Kolhapuri Chappals" 
+           onclick="openPopup(this)" />
+      <img src="images/kolhapuri_saaj.webp" 
+           alt="Kolhapuri Jewellery" 
+           title="Kolhapuri Saaj Necklace" 
+           onclick="openPopup(this)" />
+      <img src="images/kolhapuri_paithani.webp" 
+           alt="Paithani Saree" 
+           title="Paithani Silk Saree from Kolhapur" 
+           onclick="openPopup(this)" />
+    </div>
+    <div class="popup" id="popup" onclick="closePopup()">
+      <img id="popup-img" src="" alt="Popup Image" />
+    </div>
+  </section>
+
+  <!-- Artisan Stories -->
+  <section id="artisans">
+    <h2>Stories of Artisans</h2>
+    <div class="artisan-card">
+      <h3>Sunita Pawar</h3>
+      <p id="story1">Sunita has been crafting Kolhapuri chappals for over 20 years... 
+        <span class="read-more" onclick="toggleStory('story1')">Read More</span></p>
+    </div>
+    <div class="artisan-card">
+      <h3>Ravi Jadhav</h3>
+      <p id="story2">Ravi specializes in silver Kolhapuri jewelry, preserving family traditions... 
+        <span class="read-more" onclick="toggleStory('story2')">Read More</span></p>
+    </div>
+  </section>
+
+  <!-- Product Listing -->
+  <section id="buy-local">
+    <h2>Buy Local Products</h2>
+    <div class="product-card">
+      <h3>Kolhapuri Chappal</h3>
+        <p>Price: ₹799</p>
+      <button onclick="alert('This is a demo. Add to cart feature coming soon!')">Buy Now</button>
+    </div>
+    <div class="product-card">
+      <h3>Kolhapuri Saaj Necklace</h3>
+      <p>Price: ₹1199</p>
+      <button onclick="alert('This is a demo. Add to cart feature coming soon!')">Buy Now</button>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What People Say</h2>
+    <blockquote>"Authentic Kolhapuri goods! Highly recommended." – Aarti Desai</blockquote>
+    <blockquote>"Felt connected to our roots. Loved the handmade details!" – Nikhil Patil</blockquote>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="alert('Thank you! We will get back to you soon.'); return false;">
+      <label>Name:<br><input type="text" required></label><br><br>
+      <label>Email:<br><input type="email" required></label><br><br>
+      <label>Message:<br><textarea rows="4" required></textarea></label><br><br>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Map -->
+  <section>
+    <h2>Visit Kolhapur</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30237.94951629165!2d74.20160189646043!3d16.69557974097805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc100e123456789%3A0xa1b2c3d4e5f67890!2sKolhapur!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+      width="100%" height="300" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Kolhapur Crafts & Culture Hub</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function openPopup(img) {
+      const popup = document.getElementById('popup');
+      const popupImg = document.getElementById('popup-img');
+      popupImg.src = img.src;
+      popup.style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function toggleStory(id) {
+      const para = document.getElementById(id);
+      if (para.innerHTML.includes('Read More')) {
+        if (id === 'story1') {
+          para.innerHTML = 'Sunita has been crafting Kolhapuri chappals for over 20 years. She learned this art from her father and now trains young girls in her village to become self-reliant. <span class="read-more" onclick="toggleStory(\'story1\')">Show Less</span>';
+        } else if (id === 'story2') {
+          para.innerHTML = 'Ravi specializes in silver Kolhapuri jewelry, preserving family traditions. He uses traditional molds passed down for generations and conducts local workshops to pass on his skills. <span class="read-more" onclick="toggleStory(\'story2\')">Show Less</span>';
+        }
+      } else {
+        if (id === 'story1') {
+          para.innerHTML = 'Sunita has been crafting Kolhapuri chappals for over 20 years... <span class="read-more" onclick="toggleStory(\'story1\')">Read More</span>';
+        } else if (id === 'story2') {
+          para.innerHTML = 'Ravi specializes in silver Kolhapuri jewelry, preserving family traditions... <span class="read-more" onclick="toggleStory(\'story2\')">Read More</span>';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
